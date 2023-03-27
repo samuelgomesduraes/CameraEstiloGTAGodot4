@@ -2,7 +2,7 @@ using Godot;
 using System;
 public partial class jogador : CharacterBody3D
 {
-	public const float Speed = 50.0f;
+	public const float Speed = 10.0f;
 	public const float JumpVelocity = 4.5f;
 	public float Gravity =20;
 	public enum MachineState{IDLE,WALK,RUN,JUMP,FALL};
@@ -14,6 +14,7 @@ public partial class jogador : CharacterBody3D
 	public Label HudState;
 	public SpringArm3D Pivo;
 	public AnimationPlayer animacao;
+	public Marker3D Point;
 
 	public override void _Ready(){
 		HudState=GetNode<Label>("hud/state");
@@ -42,6 +43,9 @@ public partial class jogador : CharacterBody3D
 			case MachineState.IDLE:IdleEstado();break;
 			case MachineState.WALK:WalkEstado();break;
 			case MachineState.JUMP:JumpEstado();break;
+		}
+		if(Input.IsActionJustPressed("shoot")){
+			ColocarGelo();
 		}
 	}
 	//ESTADOS
@@ -107,5 +111,12 @@ public partial class jogador : CharacterBody3D
 		}
 		Velocity=velocity;
 		MoveAndSlide();
+	}
+	private void ColocarGelo(){
+		var ParedeGel=(PackedScene)ResourceLoader.Load("res://assets/paredegel/paredeGel.tscn");
+		Node3D ParedeNode =ParedeGel.Instantiate<Node3D>();
+		GetTree().Root.AddChild(ParedeNode);
+		ParedeNode.GlobalPosition=Point.GlobalPosition;
+		GD.Print("linha 115 imcompleta,nome da funcao =colocar gelo");
 	}
 }

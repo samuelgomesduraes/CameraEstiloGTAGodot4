@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ro88qxpd8b4a"]
+[gd_scene load_steps=10 format=3 uid="uid://ro88qxpd8b4a"]
 
 [ext_resource type="PackedScene" uid="uid://bsmyrjftvbyh3" path="res://scenes/jogador.tscn" id="1_qqjrt"]
 [ext_resource type="PackedScene" uid="uid://dunjca1nbvj6g" path="res://scenes/chao.tscn" id="2_6c5hu"]
+[ext_resource type="PackedScene" uid="uid://dtg27sg8c38qy" path="res://assets/paredegel/paredeGel.tscn" id="3_67okx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ndaxr"]
 
@@ -25,14 +26,12 @@ sky = SubResource("Sky_t0hnt")
 [node name="jogador" parent="." instance=ExtResource("1_qqjrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5872, 0.770424)
 
-[node name="chao" parent="." instance=ExtResource("2_6c5hu")]
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.487509, 0.873118, 0, -0.873118, 0.487509, 0, 21.8323, 4.76061)
 shadow_enabled = true
 
 [node name="parede" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 3.87174, 0, 0, 0, 14.8828, -4.7901, 2.314, -8.27618)
+transform = Transform3D(1, 0, 0, 0, 3.87174, 0, 0, 0, 14.8828, -4.7901, 1.97746, -8.27618)
 mesh = SubResource("BoxMesh_ndaxr")
 surface_material_override/0 = SubResource("StandardMaterial3D_kbon5")
 
@@ -42,7 +41,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_kbon5")
 shape = SubResource("ConcavePolygonShape3D_whmjn")
 
 [node name="parede2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.000855155, 3.87174, 0, -1, 0.00331095, 0, 0, 0, 14.8828, -2.34042, 3.74658, -8.27618)
+transform = Transform3D(0.000855155, 3.87174, 0, -0.854432, 0.00282898, -7.73256, -0.519564, 0.00172025, 12.7163, -2.34042, 3.41004, -7.41087)
 mesh = SubResource("BoxMesh_ndaxr")
 surface_material_override/0 = SubResource("StandardMaterial3D_kbon5")
 
@@ -53,3 +52,8 @@ shape = SubResource("ConcavePolygonShape3D_whmjn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xe8q8")
+
+[node name="paredeGel" parent="." instance=ExtResource("3_67okx")]
+transform = Transform3D(2.18522, 0, 2.05543, 0, 3, 0, -2.05543, 0, 2.18522, 3.24664, 0, 0)
+
+[node name="chao" parent="." instance=ExtResource("2_6c5hu")]

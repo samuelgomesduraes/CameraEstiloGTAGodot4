@@ -4727,12 +4727,12 @@ text = "estado"
 
 [node name="pivo" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49109, 0.585853)
-spring_length = 10.0
+spring_length = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="pivo"]
 
 [node name="Point" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83131, -5.13802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83131, -5.13802)
 
 [node name="textura" type="MeshInstance3D" parent="Point"]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
